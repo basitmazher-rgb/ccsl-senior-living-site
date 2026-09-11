@@ -6,666 +6,533 @@
 <title>Comfort Care Senior Living — Management &amp; Advisory</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1c1b19;
-    --ink-2:#252320;
-    --paper:#ede7de;
-    --paper-2:#e1dacb;
-    --paper-3:#d8cfba;
-    --brass:#97652f;
-    --brass-light:#b98247;
-    --brass-dim:rgba(151,101,47,.14);
-    --slate:#3e4a52;
-    --slate-light:#5a6b75;
-    --slate-dim:rgba(62,74,82,.12);
-    --ink-soft:#6b655a;
-    --line:#cfc6b2;
-    --white:#fbf9f4;
+    --ink:#1C1B19;
+    --ink-2:#2A2724;
+    --paper:#ECE6D9;
+    --paper-2:#DFD6C0;
+    --paper-3:#D3C8AE;
+    --brass:#96662E;
+    --brass-dark:#7A5324;
+    --brass-soft:#E8D9BE;
+    --slate:#3E4A52;
+    --slate-soft:#DCE2E1;
+    --muted:#6B6459;
+    --line:#D2C7AE;
+    --white:#FBF9F4;
     --serif:'Newsreader', Georgia, serif;
     --sans:'Instrument Sans','Segoe UI',system-ui,sans-serif;
-    --ease-spring: cubic-bezier(.34,1.56,.64,1);
-    --ease-out: cubic-bezier(.16,1,.3,1);
+    --spring: cubic-bezier(.22,1.28,.36,1);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{
-    margin:0; font-family:var(--sans); color:var(--ink); background:var(--paper);
-    line-height:1.6; -webkit-font-smoothing:antialiased;
-  }
+  body{margin:0; font-family:var(--sans); color:var(--ink); background:var(--paper); line-height:1.65; -webkit-font-smoothing:antialiased;}
   a{color:inherit; text-decoration:none;}
   img{max-width:100%; display:block;}
   .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
   h1,h2,h3,h4{font-family:var(--serif); font-weight:600; margin:0;}
+  p{margin:0;}
 
   @media (prefers-reduced-motion: reduce){
-    *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
   }
-
-  /* ---------- Reveal on scroll (single fade-up per section) ---------- */
-  .reveal{opacity:0; transform:translateY(28px); transition:opacity .8s var(--ease-out), transform .8s var(--ease-out);}
-  .reveal.in{opacity:1; transform:translateY(0);}
 
   /* ---------- Header ---------- */
-  header{position:sticky; top:0; z-index:100; background:rgba(237,231,222,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
-  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 32px; max-width:1180px; margin:0 auto;}
-  .brand{display:flex; align-items:center; gap:12px;}
-  .brand-mark{width:38px; height:38px; border-radius:9px; background:var(--ink); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
-  .brand-mark svg{width:20px; height:20px;}
-  .brand-name{font-family:var(--serif); font-weight:600; font-size:17px; color:var(--ink); line-height:1.2; display:block;}
-  .brand-sub{font-size:11px; color:var(--ink-soft); display:block; margin-top:1px;}
-  .nav-links{display:flex; gap:34px; align-items:center;}
-  .nav-links a{font-size:14.5px; color:var(--ink); position:relative; padding:4px 0;}
-  .nav-links a::after{content:""; position:absolute; left:0; right:100%; bottom:0; height:1.5px; background:var(--brass); transition:right .3s var(--ease-spring);}
-  .nav-links a:hover::after{right:0;}
-  .nav-links a.active{color:var(--brass);}
-  .nav-cta{background:var(--ink); color:var(--white); padding:10px 20px; border-radius:5px; font-size:14px; font-weight:600; transition:transform .3s var(--ease-spring), background .2s;}
-  .nav-cta:hover{background:var(--brass); transform:translateY(-2px);}
-  .menu-btn{display:none; background:none; border:none; color:var(--ink); font-size:24px; cursor:pointer;}
+  header{position:sticky; top:0; z-index:100; background:rgba(236,230,217,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 32px; max-width:1180px; margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:12px;}
+  .logo-mark{width:38px; height:38px; border-radius:9px; background:var(--brass); display:flex; align-items:center; justify-content:center; color:var(--white); font-family:var(--serif); font-weight:600; font-size:17px;}
+  .logo-name{font-family:var(--serif); font-weight:600; font-size:18px; color:var(--ink); line-height:1.2; display:block;}
+  .logo-sub{font-size:11px; color:var(--brass); display:block; margin-top:1px;}
+  nav.links{display:flex; gap:32px; align-items:center;}
+  nav.links a{position:relative; font-size:15px; color:var(--ink-2); padding:4px 0;}
+  nav.links a::after{content:""; position:absolute; left:0; bottom:-2px; width:0; height:1.5px; background:var(--brass); transition:width .3s var(--spring);}
+  nav.links a:hover::after, nav.links a.active::after{width:100%;}
+  nav.links a.active{color:var(--brass);}
+  .nav-cta{background:var(--ink); color:var(--white); font-weight:600; font-size:14px; padding:10px 22px; border-radius:5px; transition:background .25s var(--spring), transform .25s var(--spring);}
+  .nav-cta:hover{background:var(--brass); transform:translateY(-1px);}
+  .menu-btn{display:none; background:none; border:none; font-size:24px; cursor:pointer; color:var(--ink);}
 
   /* ---------- Buttons ---------- */
-  .btn{display:inline-flex; align-items:center; gap:8px; padding:14px 26px; border-radius:5px; font-weight:600; font-size:15px; cursor:pointer; border:1.5px solid transparent; transition:transform .3s var(--ease-spring), background .25s, border-color .25s, color .25s; font-family:var(--sans);}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:5px; font-weight:600; font-size:15px; cursor:pointer; border:1.5px solid transparent; transition:transform .25s var(--spring), background .25s var(--spring), border-color .25s var(--spring), color .25s var(--spring); font-family:var(--sans);}
   .btn-primary{background:var(--brass); color:var(--white);}
-  .btn-primary:hover{background:var(--ink); transform:translateY(-3px);}
-  .btn-outline{border-color:var(--ink); color:var(--ink);}
-  .btn-outline:hover{background:var(--ink); color:var(--white); transform:translateY(-3px);}
-  .btn-outline-light{border-color:rgba(251,249,244,.4); color:var(--white);}
-  .btn-outline-light:hover{background:var(--white); color:var(--ink); transform:translateY(-3px);}
+  .btn-primary:hover{background:var(--brass-dark); transform:translateY(-2px);}
+  .btn-outline{background:transparent; color:var(--ink); border-color:var(--ink);}
+  .btn-outline:hover{background:var(--ink); color:var(--paper); transform:translateY(-2px);}
+  .btn-light{background:transparent; color:var(--white); border-color:rgba(251,249,244,.4);}
+  .btn-light:hover{border-color:var(--white); transform:translateY(-2px);}
+
+  /* ---------- Reveal / entrance ---------- */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .8s var(--spring), transform .8s var(--spring);}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  .stagger > *{opacity:0; transform:translateY(18px); animation:stagIn .7s var(--spring) forwards;}
+  .stagger > *:nth-child(1){animation-delay:.05s;}
+  .stagger > *:nth-child(2){animation-delay:.18s;}
+  .stagger > *:nth-child(3){animation-delay:.31s;}
+  .stagger > *:nth-child(4){animation-delay:.44s;}
+  @keyframes stagIn{to{opacity:1; transform:translateY(0);}}
+
+  section{padding:104px 0;}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-size:14px; color:var(--brass); margin-bottom:18px; font-weight:600;}
+  .eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--brass); display:block;}
+  h2.section-title{font-size:clamp(1.9rem,3vw,2.5rem); line-height:1.2; letter-spacing:-.3px;}
+  .lead{font-size:1.15rem; color:var(--muted); max-width:600px; line-height:1.7; margin-top:16px;}
 
   /* ---------- Hero ---------- */
-  .hero{background:var(--paper); overflow:hidden; position:relative;}
-  .hero-grid{display:grid; grid-template-columns:1.08fr .92fr; gap:64px; align-items:center; padding:76px 0 88px;}
-  .eyebrow{font-size:13.5px; color:var(--brass); font-weight:600; margin-bottom:18px; display:block;}
-  h1.hero-title{
-    font-size:clamp(2.5rem,4.2vw,3.55rem); line-height:1.1; color:var(--ink); letter-spacing:-.01em;
-    opacity:0; transform:translateY(24px);
-  }
-  h1.hero-title .line{display:block;}
-  .hero-sub{
-    font-size:18.5px; color:var(--ink-soft); max-width:490px; margin:26px 0 34px; line-height:1.65;
-    opacity:0; transform:translateY(20px);
-  }
-  .hero-cta{display:flex; gap:16px; flex-wrap:wrap; opacity:0; transform:translateY(20px);}
-  .hero-trust{
-    margin-top:40px; display:flex; align-items:center; gap:12px; font-size:14px; color:var(--ink-soft);
-    opacity:0; transform:translateY(20px);
-  }
-  .hero-trust svg{width:18px; height:18px; color:var(--brass); flex-shrink:0;}
-  @keyframes heroIn{ to{ opacity:1; transform:translateY(0); } }
-  .hero-title{ animation:heroIn .9s var(--ease-out) .1s forwards; }
-  .hero-sub{ animation:heroIn .9s var(--ease-out) .28s forwards; }
-  .hero-cta{ animation:heroIn .9s var(--ease-out) .42s forwards; }
-  .hero-trust{ animation:heroIn .9s var(--ease-out) .55s forwards; }
+  .hero{padding:64px 0 0;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center;}
+  .hero-copy .eyebrow{margin-bottom:22px;}
+  h1.hero-title{font-size:clamp(2.4rem,4.2vw,3.6rem); line-height:1.1; letter-spacing:-.5px; color:var(--ink);}
+  .hero-sub{font-size:1.2rem; color:var(--muted); max-width:520px; margin-top:22px; line-height:1.65;}
+  .hero-cta{display:flex; gap:16px; margin-top:36px; flex-wrap:wrap;}
 
   .hero-media{position:relative;}
-  .hero-photo-frame{position:relative; border-radius:4px; overflow:hidden; aspect-ratio:3/4; box-shadow:0 30px 60px -20px rgba(28,27,25,.35);
-    opacity:0; transform:scale(.94); animation:heroPhotoIn 1.05s var(--ease-out) .15s forwards;}
-  @keyframes heroPhotoIn{ to{ opacity:1; transform:scale(1); } }
-  .hero-photo-frame img{width:100%; height:100%; object-fit:cover;}
-  .hero-badge{
-    position:absolute; left:-24px; bottom:32px; background:var(--ink); color:var(--white); border-radius:4px;
-    padding:20px 24px; box-shadow:0 18px 40px -10px rgba(28,27,25,.45); max-width:220px;
-    opacity:0; transform:translateY(16px); animation:heroIn .8s var(--ease-out) .7s forwards;
-  }
-  .hero-badge .n{font-family:var(--serif); font-size:2rem; font-weight:600; color:var(--brass-light); line-height:1;}
-  .hero-badge .t{font-size:12.5px; color:rgba(251,249,244,.75); margin-top:6px; line-height:1.4;}
+  .hero-bento{display:grid; grid-template-columns:1fr; gap:16px;}
+  .hero-photo{border-radius:14px; overflow:hidden; aspect-ratio:3/4; box-shadow:0 30px 60px -20px rgba(28,27,25,.35);}
+  .hero-photo img{width:100%; height:100%; object-fit:cover;}
+  .hero-stat-card{background:var(--ink); border-radius:14px; padding:26px 28px; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; position:relative; margin-top:-56px; margin-left:24px; margin-right:-8px; box-shadow:0 20px 40px -18px rgba(28,27,25,.4);}
+  .hero-stat-card .stat{text-align:left;}
+  .hero-stat-card .num{font-family:var(--serif); font-size:1.9rem; font-weight:600; color:var(--brass-soft); line-height:1;}
+  .hero-stat-card .lbl{font-size:11.5px; color:#C9C2B4; margin-top:6px; line-height:1.4;}
 
-  /* ---------- Bento intro row (stats + trust) ---------- */
-  .intro-bento{background:var(--paper);}
-  .bento-grid{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:16px; padding:0 0 84px;
-  }
-  .bento-cell{
-    background:var(--white); border:1px solid var(--line); border-radius:6px; padding:28px 26px;
-    transition:transform .35s var(--ease-spring), box-shadow .35s;
-  }
-  .bento-cell:hover{transform:translateY(-4px); box-shadow:0 16px 32px -14px rgba(28,27,25,.18);}
-  .bento-cell .num{font-family:var(--serif); font-size:2.6rem; font-weight:600; color:var(--ink); line-height:1;}
-  .bento-cell .lbl{font-size:13.5px; color:var(--ink-soft); margin-top:8px; line-height:1.4;}
-  .bento-cell.wide{grid-column:span 2;}
-  .bento-cell.wide{display:flex; flex-direction:column; justify-content:center;}
-  .bento-cell.wide p{font-size:15px; color:var(--ink-soft); margin:0; line-height:1.6;}
-  .bento-cell.wide .wide-label{font-size:13px; color:var(--brass); font-weight:600; margin-bottom:8px;}
-
-  /* ---------- Section framing ---------- */
-  section{padding:100px 0;}
-  .section-tag{font-size:13.5px; color:var(--brass); font-weight:600; margin-bottom:14px;}
-  h2.section-title{font-size:clamp(1.9rem,3vw,2.5rem); color:var(--ink); line-height:1.22; letter-spacing:-.01em; max-width:640px;}
-  .section-lead{font-size:17px; color:var(--ink-soft); max-width:600px; margin-top:16px; line-height:1.65;}
+  .trust-strip{border-top:1px solid var(--line); margin-top:72px; padding:24px 0;}
+  .trust-inner{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;}
+  .trust-text{font-size:14.5px; color:var(--muted);}
+  .trust-tags{display:flex; gap:10px; flex-wrap:wrap;}
+  .trust-tag{font-size:12.5px; font-weight:600; padding:6px 14px; border-radius:20px; background:var(--paper-2); color:var(--ink-2);}
 
   /* ---------- Positioning ---------- */
-  .position{background:var(--white); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .position-grid{display:grid; grid-template-columns:1fr 1fr; gap:72px;}
-  .position-copy p{font-size:16px; color:#34322d; margin:0 0 18px; max-width:480px; line-height:1.7;}
-  .stance-list{margin-top:8px;}
-  .stance{display:flex; gap:18px; padding:22px 0; border-top:1px solid var(--line);}
-  .stance:last-child{border-bottom:1px solid var(--line);}
-  .stance-ico{width:42px; height:42px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .position{background:var(--white);}
+  .position-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:72px; align-items:start;}
+  .position-copy p{font-size:1.02rem; color:#403C35; margin-top:18px; max-width:600px;}
+  .stance-list{margin-top:36px; display:flex; flex-direction:column; gap:22px;}
+  .stance{display:flex; gap:18px; align-items:flex-start;}
+  .stance-ico{width:42px; height:42px; border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
   .stance-ico svg{width:20px; height:20px;}
-  .stance-text .where{font-weight:600; color:var(--ink); font-size:15.5px; display:block; margin-bottom:4px;}
-  .stance-text .what{color:var(--ink-soft); font-size:14.5px; line-height:1.55;}
+  .stance-text .where{font-weight:600; font-size:15.5px; color:var(--ink); display:block;}
+  .stance-text .what{font-size:14.5px; color:var(--muted); margin-top:2px; display:block;}
 
-  /* ---------- Services bento ---------- */
-  .services{background:var(--paper);}
-  .svc-bento{
-    display:grid; grid-template-columns:repeat(3,1fr); grid-auto-rows:minmax(180px,auto); gap:16px; margin-top:52px;
-  }
-  .svc-tile{
-    background:var(--white); border:1px solid var(--line); border-radius:6px; padding:30px;
-    display:flex; flex-direction:column; gap:16px; transition:transform .35s var(--ease-spring), box-shadow .35s, border-color .3s;
-  }
-  .svc-tile:hover{transform:translateY(-5px); box-shadow:0 20px 40px -16px rgba(28,27,25,.2); border-color:transparent;}
-  .svc-tile .ico{width:46px; height:46px; border-radius:9px; display:flex; align-items:center; justify-content:center;}
-  .svc-tile .ico svg{width:23px; height:23px;}
-  .svc-tile h3{font-size:18px; color:var(--ink);}
-  .svc-tile p{font-size:14px; color:var(--ink-soft); line-height:1.6; margin:0;}
-  .svc-tile.feature{
-    grid-column:span 2; grid-row:span 1; background:var(--ink); border-color:transparent; flex-direction:row; align-items:center; gap:28px;
-  }
-  .svc-tile.feature .ico{background:rgba(185,130,71,.22); width:60px; height:60px;}
-  .svc-tile.feature .ico svg{width:28px; height:28px; color:var(--brass-light);}
-  .svc-tile.feature h3{color:var(--white); font-size:20px;}
-  .svc-tile.feature p{color:rgba(251,249,244,.72); max-width:420px;}
-  .services-foot{margin-top:40px; display:flex; gap:16px; flex-wrap:wrap;}
+  .position-aside{background:var(--paper); border-radius:16px; padding:44px 36px;}
+  .aside-ico{width:52px; height:52px; border-radius:12px; background:var(--brass-soft); display:flex; align-items:center; justify-content:center; margin-bottom:24px;}
+  .aside-ico svg{width:26px; height:26px; color:var(--brass-dark);}
+  .position-aside h3{font-size:1.35rem; line-height:1.35;}
+  .position-aside p{font-size:14.5px; color:var(--muted); margin-top:14px; line-height:1.7;}
+  .aside-cta{margin-top:26px; display:inline-block; font-size:14.5px; font-weight:600; color:var(--brass-dark); border-bottom:1.5px solid var(--brass); padding-bottom:2px;}
 
   /* ---------- Lifecycle (dark anchor) ---------- */
   .lifecycle{background:var(--ink); color:var(--white); position:relative; overflow:hidden;}
-  .lifecycle::before{
-    content:""; position:absolute; top:-30%; right:-10%; width:640px; height:640px; border-radius:50%;
-    background:radial-gradient(circle, rgba(151,101,47,.16), transparent 68%); pointer-events:none;
-  }
-  .lifecycle .section-tag{color:var(--brass-light);}
+  .lifecycle::before{content:""; position:absolute; top:-140px; right:-140px; width:400px; height:400px; border-radius:50%; background:radial-gradient(circle, rgba(150,102,46,.18), transparent 70%);}
+  .lifecycle .eyebrow{color:var(--brass-soft);}
+  .lifecycle .eyebrow::before{background:var(--brass-soft);}
   .lifecycle h2{color:var(--white);}
-  .lifecycle .section-lead{color:rgba(251,249,244,.65);}
-  .cycle-row{position:relative; margin-top:56px; display:grid; grid-template-columns:repeat(4,1fr); gap:0;}
-  .cycle-item{position:relative; padding:28px 24px 0; border-top:2px solid rgba(251,249,244,.18);}
-  .cycle-item.active-line{border-top-color:var(--brass-light);}
-  .cycle-num{font-family:var(--serif); font-size:.85rem; color:var(--brass-light); font-weight:600; margin-bottom:16px; display:block;}
-  .cycle-ico{width:38px; height:38px; margin-bottom:16px;}
-  .cycle-ico svg{width:100%; height:100%; color:var(--brass-light);}
-  .cycle-item h4{font-size:16.5px; color:var(--white); margin-bottom:6px;}
-  .cycle-item p{font-size:13.5px; color:rgba(251,249,244,.6); margin:0; line-height:1.55;}
-  .cycle-foot{margin-top:44px; display:flex; align-items:center; gap:12px; font-size:14.5px; color:rgba(251,249,244,.75);}
-  .cycle-foot svg{width:18px; height:18px; color:var(--brass-light); flex-shrink:0;}
+  .lifecycle .lead{color:#B9B2A3;}
+  .stage-row{display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:64px; position:relative;}
+  .stage-row::before{content:""; position:absolute; top:26px; left:5%; right:5%; height:1.5px; background:linear-gradient(90deg, transparent, rgba(232,217,190,.35) 12%, rgba(232,217,190,.35) 88%, transparent);}
+  .stage{position:relative; padding-right:24px;}
+  .stage-node{width:52px; height:52px; border-radius:50%; background:var(--ink-2); border:1.5px solid rgba(232,217,190,.3); display:flex; align-items:center; justify-content:center; margin-bottom:22px; position:relative; z-index:2;}
+  .stage-node svg{width:22px; height:22px; color:var(--brass-soft);}
+  .stage h4{color:var(--white); font-size:1.15rem;}
+  .stage p{font-size:14px; color:#A9A192; margin-top:8px; line-height:1.6;}
+  .flow-note{display:flex; align-items:center; gap:12px; margin-top:52px; padding-top:32px; border-top:1px solid rgba(255,255,255,.1); font-size:14.5px; color:#C9C2B4;}
+  .flow-note strong{color:var(--white);}
+  .flow-dot{width:8px; height:8px; border-radius:50%; background:var(--brass-soft); flex-shrink:0;}
 
-  /* ---------- Why (bento) ---------- */
-  .why{background:var(--paper);}
-  .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:52px;}
-  .why-tile{background:var(--white); border:1px solid var(--line); border-radius:6px; padding:30px 26px; transition:transform .35s var(--ease-spring), box-shadow .35s;}
-  .why-tile:hover{transform:translateY(-4px); box-shadow:0 16px 32px -14px rgba(28,27,25,.16);}
-  .why-tile .ico{width:40px; height:40px; margin-bottom:18px;}
-  .why-tile .ico svg{width:100%; height:100%; color:var(--brass);}
-  .why-tile h4{font-size:16px; color:var(--ink); margin-bottom:8px;}
-  .why-tile p{font-size:13.5px; color:var(--ink-soft); margin:0; line-height:1.55;}
-  .why-foot{margin-top:44px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; padding-top:36px; border-top:1px solid var(--line);}
-  .why-foot p{font-size:16px; color:var(--ink); margin:0; max-width:460px; font-family:var(--serif); font-weight:500;}
-  .why-foot .btn-row{display:flex; gap:14px;}
+  /* ---------- Services (bento) ---------- */
+  .services-head{max-width:680px;}
+  .bento{display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:minmax(180px,auto); gap:18px; margin-top:56px;}
+  .bento-tile{background:var(--white); border:1px solid var(--line); border-radius:14px; padding:30px; display:flex; flex-direction:column; transition:transform .35s var(--spring), box-shadow .35s var(--spring); grid-column:span 2;}
+  .bento-tile:hover{transform:translateY(-5px); box-shadow:0 22px 40px -20px rgba(28,27,25,.25);}
+  .bento-tile.feature{grid-column:span 4; flex-direction:row; align-items:center; gap:40px; background:var(--ink); border-color:var(--ink); color:var(--white);}
+  .bento-tile.feature .tile-ico{background:rgba(232,217,190,.14);}
+  .bento-tile.feature .tile-ico svg{color:var(--brass-soft);}
+  .bento-tile.feature h3{color:var(--white);}
+  .bento-tile.feature p{color:#B9B2A3;}
+  .tile-ico{width:48px; height:48px; border-radius:11px; background:var(--paper); display:flex; align-items:center; justify-content:center; margin-bottom:20px; flex-shrink:0;}
+  .tile-ico svg{width:23px; height:23px; color:var(--brass-dark);}
+  .bento-tile h3{font-size:1.15rem; line-height:1.3;}
+  .bento-tile p{font-size:14px; color:var(--muted); margin-top:10px; line-height:1.65;}
+  .services-foot{margin-top:44px; display:flex; gap:16px; flex-wrap:wrap;}
+
+  /* ---------- Why ---------- */
+  .why{background:var(--white);}
+  .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:56px;}
+  .why-item{padding-top:26px; border-top:2px solid var(--brass);}
+  .why-item .tile-ico{width:44px; height:44px; background:var(--slate-soft); margin-bottom:20px;}
+  .why-item .tile-ico svg{color:var(--slate); width:21px; height:21px;}
+  .why-item h4{font-size:1.05rem;}
+  .why-item p{font-size:14px; color:var(--muted); margin-top:10px; line-height:1.65;}
+  .why-foot{margin-top:48px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; padding-top:36px; border-top:1px solid var(--line);}
+  .why-foot-text{font-size:1.05rem; font-family:var(--serif); max-width:420px;}
+  .why-foot-actions{display:flex; gap:14px;}
 
   /* ---------- Leadership ---------- */
-  .leaders{background:var(--white); border-top:1px solid var(--line);}
-  .leader-row{display:grid; grid-template-columns:repeat(5,1fr); gap:24px; margin-top:52px;}
+  .leaders-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:24px; margin-top:52px;}
   .leader{text-align:left;}
-  .leader-avatar{
-    width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-    font-family:var(--serif); font-weight:600; font-size:18px; color:var(--white); margin-bottom:16px;
-  }
-  .leader h4{font-size:15.5px; color:var(--ink); margin-bottom:3px;}
-  .leader .role{font-size:13px; color:var(--ink-soft); line-height:1.4;}
+  .avatar{width:100%; aspect-ratio:1; border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:16px; font-family:var(--serif); font-weight:600; font-size:1.6rem; color:var(--white);}
+  .leader h4{font-size:1rem;}
+  .leader .role{font-size:13px; color:var(--muted); margin-top:4px;}
 
   /* ---------- Contact ---------- */
-  .contact{background:var(--paper);}
-  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:start;}
-  .contact-copy p{font-size:16px; color:var(--ink-soft); max-width:440px; line-height:1.7; margin:18px 0 32px;}
-  .contact-info{display:flex; flex-direction:column; gap:20px;}
-  .contact-info-item{display:flex; gap:14px; align-items:flex-start;}
-  .contact-info-item svg{width:19px; height:19px; color:var(--brass); flex-shrink:0; margin-top:2px;}
-  .contact-info-item .label{font-size:12.5px; color:var(--ink-soft); text-transform:none; margin-bottom:2px;}
-  .contact-info-item .value{font-size:15px; color:var(--ink); font-weight:500;}
-  .contact-form{background:var(--white); border:1px solid var(--line); border-radius:8px; padding:44px;}
-  .contact-form h3{font-size:1.35rem; color:var(--ink); margin-bottom:26px;}
-  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .contact{background:var(--white);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1.1fr; gap:64px;}
+  .contact-copy p{font-size:1.02rem; color:#403C35; margin-top:18px; max-width:440px; line-height:1.7;}
+  .contact-info{margin-top:32px; display:flex; flex-direction:column; gap:18px;}
+  .contact-info-row{display:flex; gap:14px; align-items:flex-start;}
+  .contact-info-row .tile-ico{width:38px; height:38px; margin-bottom:0; background:var(--paper);}
+  .contact-info-row .tile-ico svg{width:18px; height:18px;}
+  .contact-info-row .ct-label{font-size:12.5px; color:var(--muted); text-transform:none;}
+  .contact-info-row .ct-value{font-size:14.5px; font-weight:600; color:var(--ink); margin-top:2px;}
+
+  .contact-form{background:var(--paper); border-radius:16px; padding:44px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
   .field{margin-bottom:18px;}
-  .field label{display:block; font-size:13px; font-weight:600; color:var(--ink); margin-bottom:7px;}
-  .field input, .field select, .field textarea{
-    width:100%; background:var(--paper); border:1.5px solid var(--line); border-radius:5px; padding:12px 14px;
-    font-family:var(--sans); font-size:14.5px; color:var(--ink); outline:none; transition:border-color .25s;
-  }
+  .field label{display:block; font-size:13px; font-weight:600; color:var(--ink-2); margin-bottom:7px;}
+  .field input, .field select, .field textarea{width:100%; background:var(--white); border:1.5px solid var(--line); border-radius:7px; padding:12px 14px; font-family:var(--sans); font-size:15px; color:var(--ink); outline:none; transition:border-color .25s var(--spring);}
   .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--brass);}
-  .field textarea{resize:vertical; min-height:104px;}
-  .submit-btn{
-    width:100%; background:var(--ink); color:var(--white); font-weight:600; font-size:15.5px; padding:15px;
-    border-radius:5px; border:none; cursor:pointer; transition:background .25s, transform .3s var(--ease-spring); font-family:var(--sans);
-  }
-  .submit-btn:hover{background:var(--brass); transform:translateY(-2px);}
-  .form-note{font-size:12.5px; color:var(--ink-soft); margin-top:14px; text-align:center;}
-  .confirm-msg{display:none; margin-top:16px; padding:14px 16px; background:var(--brass-dim); border-radius:5px; font-size:13.5px; color:var(--ink);}
+  .field textarea{min-height:110px; resize:vertical;}
+  .submit-btn{width:100%; background:var(--ink); color:var(--white); font-weight:600; font-size:15.5px; padding:15px; border-radius:7px; border:none; cursor:pointer; transition:background .25s var(--spring), transform .25s var(--spring);}
+  .submit-btn:hover{background:var(--brass); transform:translateY(-1px);}
+  .form-note{font-size:12px; color:var(--muted); margin-top:12px; text-align:center;}
+  .confirm-msg{display:none; margin-top:14px; padding:12px 16px; background:var(--slate-soft); border-radius:8px; font-size:13.5px; color:var(--slate);}
 
   /* ---------- Footer ---------- */
-  footer{background:var(--ink); color:rgba(251,249,244,.6); padding:64px 0 32px;}
+  footer{background:var(--ink); color:#C9C2B4; padding:64px 0 32px;}
   .footer-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:48px;}
-  .footer-brand{display:flex; align-items:center; gap:12px; margin-bottom:18px;}
-  .footer-brand .brand-mark{background:var(--brass);}
-  .footer-brand-name{font-family:var(--serif); font-weight:600; font-size:16px; color:var(--white);}
-  .footer-desc{font-size:13.5px; max-width:320px; line-height:1.65;}
-  footer h4{font-family:var(--sans); font-weight:600; font-size:13px; color:var(--white); margin-bottom:16px;}
-  footer ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;}
-  footer ul a{font-size:13.5px; transition:color .2s;}
-  footer ul a:hover{color:var(--brass-light);}
-  .footer-bottom{border-top:1px solid rgba(251,249,244,.12); margin-top:48px; padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:12.5px;}
+  .footer-desc{font-size:14px; color:#A9A192; max-width:320px; margin-top:18px; line-height:1.7;}
+  footer h4{color:var(--white); font-size:13.5px; margin-bottom:18px; font-weight:600;}
+  footer ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px;}
+  footer li a{font-size:14px; color:#A9A192; transition:color .2s;}
+  footer li a:hover{color:var(--brass-soft);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.1); margin-top:48px; padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:13px; color:#87806f;}
 
   /* ---------- Responsive ---------- */
   @media (max-width:980px){
-    .nav-links{display:none;}
+    nav.links{display:none;}
     .menu-btn{display:block;}
-    .hero-grid{grid-template-columns:1fr; gap:48px; padding:52px 0 60px;}
-    .hero-media{max-width:380px;}
-    .bento-grid{grid-template-columns:repeat(2,1fr);}
-    .bento-cell.wide{grid-column:span 2;}
+    .hero-grid{grid-template-columns:1fr; gap:48px;}
+    .hero-stat-card{margin-left:0;}
     .position-grid{grid-template-columns:1fr; gap:40px;}
-    .svc-bento{grid-template-columns:1fr 1fr;}
-    .svc-tile.feature{grid-column:span 2;}
-    .cycle-row{grid-template-columns:1fr 1fr; row-gap:32px;}
+    .stage-row{grid-template-columns:1fr 1fr; gap:36px 24px;}
+    .stage-row::before{display:none;}
+    .bento-tile{grid-column:span 4;}
+    .bento{grid-template-columns:1fr;}
+    .bento-tile.feature{flex-direction:column; align-items:flex-start;}
     .why-grid{grid-template-columns:1fr 1fr;}
-    .leader-row{grid-template-columns:repeat(3,1fr); row-gap:28px;}
-    .contact-grid{grid-template-columns:1fr; gap:44px;}
+    .leaders-grid{grid-template-columns:repeat(3,1fr);}
+    .contact-grid{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr 1fr;}
   }
-  @media (max-width:620px){
+  @media (max-width:640px){
     section{padding:72px 0;}
-    .bento-grid{grid-template-columns:1fr;}
-    .bento-cell.wide{grid-column:span 1;}
-    .svc-bento{grid-template-columns:1fr;}
-    .svc-tile.feature{grid-column:span 1; flex-direction:column; align-items:flex-start;}
-    .cycle-row{grid-template-columns:1fr;}
+    .stage-row{grid-template-columns:1fr;}
     .why-grid{grid-template-columns:1fr;}
-    .leader-row{grid-template-columns:repeat(2,1fr);}
-    .field-row{grid-template-columns:1fr;}
+    .leaders-grid{grid-template-columns:repeat(2,1fr);}
+    .form-row{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr;}
-    h1.hero-title{font-size:2.1rem;}
-    .hero-badge{position:static; margin-top:20px; max-width:none;}
+    .why-foot{flex-direction:column; align-items:flex-start;}
   }
 </style>
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
 <header>
   <div class="nav">
-    <a href="index.html" class="brand">
-      <div class="brand-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fbf9f4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16c5 0 7-8 12-8a4 4 0 0 1 0 8c-5 0-7-8-12-8a4 4 0 1 0 0 8"/></svg>
-      </div>
+    <a href="index.html" class="logo">
+      <div class="logo-mark">CC</div>
       <div>
-        <span class="brand-name">Comfort Care Senior Living</span>
-        <span class="brand-sub">Management &amp; Advisory</span>
+        <span class="logo-name">Comfort Care Senior Living</span>
+        <span class="logo-sub">Management &amp; Advisory</span>
       </div>
     </a>
-    <nav class="nav-links">
+    <nav class="links">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="why.html">Why CCSL</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <a href="contact.html" class="nav-cta">Partner with us</a>
+    <a href="#contact" class="nav-cta">Start a conversation</a>
     <button class="menu-btn" aria-label="Menu">&#9776;</button>
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow">Senior living management &amp; advisory</span>
-        <h1 class="hero-title">
-          <span class="line">One accountable team</span>
-          <span class="line">across every stage of a</span>
-          <span class="line">community's life.</span>
-        </h1>
-        <p class="hero-sub">We develop, stabilize, and operate senior living communities on behalf of the owners, lenders, and institutions who back them — so care and performance hold together at every stage.</p>
-        <div class="hero-cta">
-          <a href="contact.html" class="btn btn-primary">Partner with us</a>
-          <a href="services.html" class="btn btn-outline">Explore our services</a>
+  <div class="wrap hero-grid">
+    <div class="hero-copy stagger">
+      <span class="eyebrow">Senior living management &amp; advisory</span>
+      <h1 class="hero-title">One accountable team across every stage of a community's life.</h1>
+      <p class="hero-sub">We develop, stabilize, and operate senior living communities on behalf of the owners, lenders, and institutions who back them.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Start a conversation</a>
+        <a href="services.html" class="btn btn-outline">See our services</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="hero-bento">
+        <div class="hero-photo">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fe3QcBjobJ7TurUWCL03uR6uLC/hf_20260911_223643_0e6dc433-3d57-4787-b51d-102ba9d67271.png" alt="A Comfort Care Senior Living managed community at golden hour">
         </div>
-        <div class="hero-trust">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11.46 20.85A12 12 0 0 1 3.5 6A12 12 0 0 0 12 3a12 12 0 0 0 8.5 3a12 12 0 0 1-.09 7.06M15 19l2 2l4-4"/></svg>
-          Trusted across the table — owners, lenders, courts, and REITs
+        <div class="hero-stat-card">
+          <div class="stat"><div class="num">2013</div><div class="lbl">Managing since</div></div>
+          <div class="stat"><div class="num">30+</div><div class="lbl">Communities managed</div></div>
+          <div class="stat"><div class="num">7</div><div class="lbl">Service lines</div></div>
         </div>
       </div>
-      <div class="hero-media">
-        <div class="hero-photo-frame">
-          <img src="images/hero-community.jpg" alt="A senior living community exterior at golden hour, with a covered entrance and mature landscaping">
-        </div>
-        <div class="hero-badge">
-          <div class="n">30+</div>
-          <div class="t">Communities managed since 2013</div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="trust-strip reveal">
+      <div class="trust-inner">
+        <span class="trust-text">Trusted across the table by owners, lenders, courts, and institutional investors.</span>
+        <div class="trust-tags">
+          <span class="trust-tag">Owners</span>
+          <span class="trust-tag">Lenders</span>
+          <span class="trust-tag">Courts</span>
+          <span class="trust-tag">REITs</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== INTRO BENTO (stats) ===== -->
-<div class="intro-bento">
-  <div class="wrap">
-    <div class="bento-grid reveal">
-      <div class="bento-cell">
-        <div class="num">2013</div>
-        <div class="lbl">Managing communities since</div>
-      </div>
-      <div class="bento-cell">
-        <div class="num">30+</div>
-        <div class="lbl">Communities managed to date</div>
-      </div>
-      <div class="bento-cell">
-        <div class="num">7</div>
-        <div class="lbl">Service lines, one partner</div>
-      </div>
-      <div class="bento-cell wide">
-        <div class="wide-label">Start a conversation</div>
-        <p>Tell us about your community, and we'll set up a call this week.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ===== POSITIONING ===== -->
+<!-- POSITIONING -->
 <section class="position">
   <div class="wrap position-grid">
-    <div class="reveal">
-      <div class="section-tag">Who we are</div>
+    <div class="position-copy reveal">
+      <span class="eyebrow">Who we are</span>
       <h2 class="section-title">A full-lifecycle management partner</h2>
-      <div class="position-copy" style="margin-top:22px;">
-        <p>Since 2013, Comfort Care Senior Living has managed senior living communities on behalf of the people who own and finance them — the operating partner owners, lenders, and institutions turn to when performance, care, and accountability all have to hold at once.</p>
-        <p>Most firms specialize in one moment. We work across all of them, so a partner never has to hand off the relationship as an asset moves from one stage to the next.</p>
-      </div>
-      <a href="about.html" class="btn btn-outline" style="margin-top:8px;">Read our full story</a>
-    </div>
-    <div class="reveal">
+      <p>Since 2013, Comfort Care Senior Living has managed senior living communities on behalf of the people who own and finance them — the operating partner owners, lenders, and institutions turn to when performance, care, and accountability all have to hold at once.</p>
+      <p>Most firms specialize in one moment. We work across all of them, so a partner never has to hand off the relationship as an asset moves from one stage to the next.</p>
       <div class="stance-list">
         <div class="stance">
-          <div class="stance-ico" style="background:var(--brass-dim);">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#97652f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/></svg>
-          </div>
-          <div class="stance-text">
-            <span class="where">At the closing table</span>
-            <span class="what">Structuring, financing, and diligence with capital partners.</span>
-          </div>
+          <div class="stance-ico" style="background:var(--brass-soft);"><svg viewBox="0 0 256 256" fill="currentColor" style="color:var(--brass-dark)"><path d="m254.3 107.91l-25.52-51.06a16 16 0 0 0-21.47-7.15l-24.87 12.43l-52.39-13.86a8.14 8.14 0 0 0-4.1 0L73.56 62.13L48.69 49.7a16 16 0 0 0-21.47 7.15L1.7 107.9a16 16 0 0 0 7.15 21.47l27 13.51l55.49 39.63a8.1 8.1 0 0 0 2.71 1.25l64 16a8 8 0 0 0 7.6-2.1l55.07-55.08l26.42-13.21a16 16 0 0 0 7.15-21.46Zm-54.89 33.37L165 113.72a8 8 0 0 0-10.68.61C136.51 132.27 116.66 130 104 122l43.24-42h31.81l27.21 54.41ZM41.53 64L62 74.22l-25.57 51.05L16 115.06Zm116 119.13l-58.11-14.52l-49.2-35.14l28-56L128 64.28l9.8 2.59l-45 43.68l-.08.09a16 16 0 0 0 2.72 24.81c20.56 13.13 45.37 11 64.91-5L188 152.66Zm62-57.87l-25.52-51L214.47 64L240 115.06Zm-87.75 92.67a8 8 0 0 1-7.75 6.06a8 8 0 0 1-1.95-.24l-41.67-10.42a7.9 7.9 0 0 1-2.71-1.25l-26.35-18.82a8 8 0 0 1 9.3-13l25.11 17.94L126 208.24a8 8 0 0 1 5.82 9.7Z"/></svg></div>
+          <div class="stance-text"><span class="where">At the closing table</span><span class="what">Structuring, financing, and diligence with capital partners.</span></div>
         </div>
         <div class="stance">
-          <div class="stance-ico" style="background:var(--slate-dim);">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#3e4a52" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5 21v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1"/></svg>
-          </div>
-          <div class="stance-text">
-            <span class="where">On the operations floor</span>
-            <span class="what">Staffing, care, compliance, and census, day to day.</span>
-          </div>
+          <div class="stance-ico" style="background:var(--slate-soft);"><svg viewBox="0 0 256 256" fill="currentColor" style="color:var(--slate)"><path d="m251.34 112l-67.46-67.92a96.1 96.1 0 0 0-135.77 0l-.09.09L34.25 58.4a8 8 0 0 0 11.49 11.13l13.73-14.18a80 80 0 0 1 18.71-13.9L124.68 88l-96 96a16 16 0 0 0 0 22.63l20.69 20.69a16 16 0 0 0 22.63 0l96-96l14.34 14.34L200 163.3a16 16 0 0 0 22.63 0l28.69-28.69a16 16 0 0 0 .02-22.61M60.68 216L40 195.31l68-68L128.68 148Zm101.66-101.68L140 136.67L119.31 116l22.35-22.35a8 8 0 0 0 0-11.32L94.32 35a80 80 0 0 1 78.23 20.41l44.22 44.51L188 128.66l-14.34-14.34a8 8 0 0 0-11.32 0m49 37.66l-12-12L228 111.25l12 12Z"/></svg></div>
+          <div class="stance-text"><span class="where">On the operations floor</span><span class="what">Staffing, care, compliance, and census, day to day.</span></div>
         </div>
         <div class="stance">
-          <div class="stance-ico" style="background:var(--brass-dim);">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#97652f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>
-          </div>
-          <div class="stance-text">
-            <span class="where">In the boardroom</span>
-            <span class="what">Portfolio strategy and asset performance for institutions.</span>
-          </div>
+          <div class="stance-ico" style="background:var(--brass-soft);"><svg viewBox="0 0 256 256" fill="currentColor" style="color:var(--brass-dark)"><path d="M224 200h-8V40a8 8 0 0 0-8-8h-56a8 8 0 0 0-8 8v40H96a8 8 0 0 0-8 8v40H48a8 8 0 0 0-8 8v64h-8a8 8 0 0 0 0 16h192a8 8 0 0 0 0-16M160 48h40v152h-40Zm-56 48h40v104h-40Zm-48 48h32v56H56Z"/></svg></div>
+          <div class="stance-text"><span class="where">In the boardroom</span><span class="what">Portfolio strategy and asset performance for institutions.</span></div>
         </div>
       </div>
+    </div>
+    <div class="position-aside reveal">
+      <div class="aside-ico"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M248 128a56 56 0 0 1-95.6 39.6l-.33-.35l-59.95-67.7a40 40 0 1 0 0 56.9l8.52-9.62a8 8 0 1 1 12 10.61l-8.69 9.81l-.33.35a56 56 0 1 1 0-79.2l.33.35l59.95 67.7a40 40 0 1 0 0-56.9l-8.52 9.62a8 8 0 1 1-12-10.61l8.69-9.81l.33-.35A56 56 0 0 1 248 128"/></svg></div>
+      <h3>No handoffs between stages</h3>
+      <p>When an asset moves from development to operations, or from stabilization to a long-term hold, the same team stays on it. Lenders and owners deal with one point of accountability, not a relay of vendors.</p>
+      <a href="about.html" class="aside-cta">Read our full story</a>
     </div>
   </div>
 </section>
 
-<!-- ===== SERVICES (bento) ===== -->
+<!-- LIFECYCLE -->
+<section class="lifecycle">
+  <div class="wrap">
+    <span class="eyebrow reveal">How an asset moves through CCSL</span>
+    <h2 class="section-title reveal">Four stages, one operator</h2>
+    <p class="lead reveal">From breaking ground to a refinance or sale, the same team carries the relationship forward.</p>
+    <div class="stage-row">
+      <div class="stage reveal">
+        <div class="stage-node"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M240 224h-24V32h8a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16h8v192H24a8 8 0 0 0 0 16h208a8 8 0 0 0 0-16M64 32h128v192h-32v-40a8 8 0 0 0-8-8h-48a8 8 0 0 0-8 8v40H64Zm80 192h-32v-32h32ZM88 64a8 8 0 0 1 8-8h16a8 8 0 0 1 0 16H96a8 8 0 0 1-8-8m48 0a8 8 0 0 1 8-8h16a8 8 0 0 1 0 16h-16a8 8 0 0 1-8-8m-48 40a8 8 0 0 1 8-8h16a8 8 0 0 1 0 16H96a8 8 0 0 1-8-8m48 0a8 8 0 0 1 8-8h16a8 8 0 0 1 0 16h-16a8 8 0 0 1-8-8m-48 40a8 8 0 0 1 8-8h16a8 8 0 0 1 0 16H96a8 8 0 0 1-8-8m48 0a8 8 0 0 1 8-8h16a8 8 0 0 1 0 16h-16a8 8 0 0 1-8-8"/></svg></div>
+        <h4>Develop</h4>
+        <p>An operator's perspective on design, staffing, and pre-opening budgets from day one.</p>
+      </div>
+      <div class="stage reveal">
+        <div class="stage-node"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M240 56v64a8 8 0 0 1-16 0V75.31l-82.34 82.35a8 8 0 0 1-11.32 0L96 123.31l-66.34 66.35a8 8 0 0 1-11.32-11.32l72-72a8 8 0 0 1 11.32 0L136 140.69L212.69 64H168a8 8 0 0 1 0-16h64a8 8 0 0 1 8 8"/></svg></div>
+        <h4>Stabilize</h4>
+        <p>Rebuild the operating plan and restore occupancy, staffing, and margin.</p>
+      </div>
+      <div class="stage reveal">
+        <div class="stage-node"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m0 192a88 88 0 1 1 88-88a88.1 88.1 0 0 1-88 88m44.42-143.16l-64 32a8.05 8.05 0 0 0-3.58 3.58l-32 64A8 8 0 0 0 80 184a8.1 8.1 0 0 0 3.58-.84l64-32a8.05 8.05 0 0 0 3.58-3.58l32-64a8 8 0 0 0-10.74-10.74M138 138l-40.11 20.11L118 118l40.15-20.07Z"/></svg></div>
+        <h4>Operate</h4>
+        <p>Day-to-day management — staffing, care, compliance, and reporting.</p>
+      </div>
+      <div class="stage reveal">
+        <div class="stage-node"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M224 48v48a8 8 0 0 1-8 8h-48a8 8 0 0 1 0-16h28.69l-14.63-14.63a79.56 79.56 0 0 0-56.13-23.43h-.45a79.52 79.52 0 0 0-55.89 22.77a8 8 0 0 1-11.18-11.44a96 96 0 0 1 135 .79L208 76.69V48a8 8 0 0 1 16 0m-37.59 135.29a80 80 0 0 1-112.47-.66L59.31 168H88a8 8 0 0 0 0-16H40a8 8 0 0 0-8 8v48a8 8 0 0 0 16 0v-28.69l14.63 14.63A95.43 95.43 0 0 0 130 222.06h.53a95.36 95.36 0 0 0 67.07-27.33a8 8 0 0 0-11.18-11.44Z"/></svg></div>
+        <h4>Transition</h4>
+        <p>Refinance, sale, or handover — on the owner's timeline, not a forced exit.</p>
+      </div>
+    </div>
+    <div class="flow-note reveal"><span class="flow-dot"></span><span><strong>One partner</strong> across all four stages — no handoffs, no gaps.</span></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
 <section class="services">
   <div class="wrap">
-    <div class="reveal">
-      <div class="section-tag">What we do</div>
+    <div class="services-head reveal">
+      <span class="eyebrow">What we do</span>
       <h2 class="section-title">Seven ways we partner across an asset's life</h2>
-      <p class="section-lead">From breaking ground to stabilized, long-term operations — one team, accountable at every stage.</p>
+      <p class="lead">From breaking ground to stabilized, long-term operations — one team, accountable at every stage.</p>
     </div>
-    <div class="svc-bento reveal">
-      <a class="svc-tile" href="services.html">
-        <div class="ico" style="background:var(--brass-dim);"><svg viewBox="0 0 24 24" fill="none" stroke="#97652f" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M10 21v-6h4v6"/></svg></div>
-        <h3>Ground-up development</h3>
+    <div class="bento reveal">
+      <a class="bento-tile" href="services.html">
+        <div class="tile-ico"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M240 224h-24V32h8a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16h8v192H24a8 8 0 0 0 0 16h208a8 8 0 0 0 0-16M64 32h128v192h-32v-40a8 8 0 0 0-8-8h-48a8 8 0 0 0-8 8v40H64Zm80 192h-32v-32h32ZM88 64a8 8 0 0 1 8-8h16a8 8 0 0 1 0 16H96a8 8 0 0 1-8-8m48 0a8 8 0 0 1 8-8h16a8 8 0 0 1 0 16h-16a8 8 0 0 1-8-8m-48 40a8 8 0 0 1 8-8h16a8 8 0 0 1 0 16H96a8 8 0 0 1-8-8m48 0a8 8 0 0 1 8-8h16a8 8 0 0 1 0 16h-16a8 8 0 0 1-8-8m-48 40a8 8 0 0 1 8-8h16a8 8 0 0 1 0 16H96a8 8 0 0 1-8-8m48 0a8 8 0 0 1 8-8h16a8 8 0 0 1 0 16h-16a8 8 0 0 1-8-8"/></svg></div>
+        <h3>Ground-Up Development</h3>
         <p>An operator's perspective on design, staffing, and pre-opening budgets.</p>
       </a>
-      <a class="svc-tile" href="services.html">
-        <div class="ico" style="background:var(--slate-dim);"><svg viewBox="0 0 24 24" fill="none" stroke="#3e4a52" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 18v-7m1.12-8.8a2 2 0 0 1 1.76 0l7.84 3.85a.5.5 0 0 1-.22.95h-17a.5.5 0 0 1-.22-.95zM14 18v-7m4 7v-7M3 22h18M6 18v-7"/></svg></div>
-        <h3>Lender &amp; capital partner relations</h3>
+      <a class="bento-tile" href="services.html">
+        <div class="tile-ico"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M24 104h24v64H32a8 8 0 0 0 0 16h192a8 8 0 0 0 0-16h-16v-64h24a8 8 0 0 0 4.19-14.81l-104-64a8 8 0 0 0-8.38 0l-104 64A8 8 0 0 0 24 104m40 0h32v64H64Zm80 0v64h-32v-64Zm48 64h-32v-64h32ZM128 41.39L203.74 88H52.26ZM248 208a8 8 0 0 1-8 8H16a8 8 0 0 1 0-16h224a8 8 0 0 1 8 8"/></svg></div>
+        <h3>Lender &amp; Capital Partner Relations</h3>
         <p>A steady partner through draws, covenants, and reporting.</p>
       </a>
-      <a class="svc-tile" href="services.html">
-        <div class="ico" style="background:var(--brass-dim);"><svg viewBox="0 0 24 24" fill="none" stroke="#97652f" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg></div>
-        <h3>Stabilization &amp; turnaround</h3>
+      <a class="bento-tile" href="services.html">
+        <div class="tile-ico"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M240 56v64a8 8 0 0 1-16 0V75.31l-82.34 82.35a8 8 0 0 1-11.32 0L96 123.31l-66.34 66.35a8 8 0 0 1-11.32-11.32l72-72a8 8 0 0 1 11.32 0L136 140.69L212.69 64H168a8 8 0 0 1 0-16h64a8 8 0 0 1 8 8"/></svg></div>
+        <h3>Stabilization &amp; Turnaround</h3>
         <p>Rebuild the operating plan and restore occupancy, staffing, and margin.</p>
       </a>
-      <a class="svc-tile" href="services.html">
-        <div class="ico" style="background:var(--slate-dim);"><svg viewBox="0 0 24 24" fill="none" stroke="#3e4a52" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18m7-13 3 8a5 5 0 0 1-6 0zV7"/><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1M5 8l3 8a5 5 0 0 1-6 0zV7m2 14h10"/></svg></div>
-        <h3>Receivership transitions</h3>
+      <a class="bento-tile" href="services.html">
+        <div class="tile-ico"><svg viewBox="0 0 256 256" fill="currentColor"><path d="m239.43 133l-32-80a8 8 0 0 0-9.16-4.84L136 62V40a8 8 0 0 0-16 0v25.58L54.26 80.19A8 8 0 0 0 48.57 85v.06l-32 79.94a7.9 7.9 0 0 0-.57 3c0 23.31 24.54 32 40 32s40-8.69 40-32a7.9 7.9 0 0 0-.57-3L66.92 93.77L120 82v126h-16a8 8 0 0 0 0 16h48a8 8 0 0 0 0-16h-16V78.42l51-11.32l-26.43 65.9a7.9 7.9 0 0 0-.57 3c0 23.31 24.54 32 40 32s40-8.69 40-32a7.9 7.9 0 0 0-.57-3M56 184c-7.53 0-22.76-3.61-23.93-14.64L56 109.54l23.93 59.82C78.76 180.39 63.53 184 56 184m144-32c-7.53 0-22.76-3.61-23.93-14.64L200 77.54l23.93 59.82C222.76 148.39 207.53 152 200 152"/></svg></div>
+        <h3>Receivership Transitions</h3>
         <p>Protect resident care through distress; manage to sale or new ownership.</p>
       </a>
-      <a class="svc-tile" href="services.html">
-        <div class="ico" style="background:var(--brass-dim);"><svg viewBox="0 0 24 24" fill="none" stroke="#97652f" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12h4m-4-4h4m0 13v-3a2 2 0 0 0-4 0v3"/><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"/><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/></svg></div>
-        <h3>REIT &amp; institutional advisory</h3>
+      <a class="bento-tile" href="services.html">
+        <div class="tile-ico"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M240 208h-16V96a16 16 0 0 0-16-16h-64V32a16 16 0 0 0-24.88-13.32L39.12 72A16 16 0 0 0 32 85.34V208H16a8 8 0 0 0 0 16h224a8 8 0 0 0 0-16M208 96v112h-64V96ZM48 85.34L128 32v176H48ZM112 112v16a8 8 0 0 1-16 0v-16a8 8 0 1 1 16 0m-32 0v16a8 8 0 0 1-16 0v-16a8 8 0 1 1 16 0m0 56v16a8 8 0 0 1-16 0v-16a8 8 0 0 1 16 0m32 0v16a8 8 0 0 1-16 0v-16a8 8 0 0 1 16 0"/></svg></div>
+        <h3>REIT &amp; Institutional Advisory</h3>
         <p>Hands-on management and asset-level review across a portfolio.</p>
       </a>
-      <a class="svc-tile" href="services.html">
-        <div class="ico" style="background:var(--slate-dim);"><svg viewBox="0 0 24 24" fill="none" stroke="#3e4a52" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.59 17.41A2 2 0 0 1 2 16v-2.83a2 2 0 0 1 .59-1.42l8.48-8.49a2 2 0 0 1 1.42-.58h.17a6.5 6.5 0 1 1 4 4v.17a2 2 0 0 1-.58 1.42l-.83.83a2 2 0 0 1-1.42.59H12l-1 1v1a1 1 0 0 1-1 1h-1v1a1 1 0 0 1-1 1H6l-.59.59"/><circle cx="16.5" cy="7.5" r=".5" fill="#3e4a52"/></svg></div>
-        <h3>Third-party management</h3>
+      <a class="bento-tile" href="services.html">
+        <div class="tile-ico"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M216.57 39.43a80 80 0 0 0-59.1 136.16l1.13 1.28l-19.85 19.85a8 8 0 0 1-5.65 2.34H120v16a8 8 0 0 1-8 8H96v16a8 8 0 0 1-8 8H56a16 16 0 0 1-16-16v-28.69a16 16 0 0 1 4.69-11.31l76.33-76.33a80 80 0 0 1 79.55-99.3M164 100a12 12 0 1 0 12-12a12 12 0 0 0-12 12"/></svg></div>
+        <h3>Third-Party Management</h3>
         <p>Full operating management while owners retain ownership.</p>
       </a>
-      <a class="svc-tile feature" href="services.html">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#b98247" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 15h1.6a2 2 0 0 1 1.4.6l.3.4a2 2 0 0 0 1.4.6h1.7a1.8 1.8 0 1 0 0-3.6H9.4"/><path d="m7 20 1.4-1.2a2 2 0 0 1 1.3-.5h3.7a2.8 2.8 0 0 0 2-.8l3.7-3.6a1.7 1.7 0 0 0 0-2.5 1.8 1.8 0 0 0-2.3-.2l-3.4 2.6"/><path d="m2 16 6 6"/><circle cx="16" cy="9" r="2.9"/><circle cx="6.5" cy="5.5" r="3"/></svg></div>
+      <a class="bento-tile feature" href="services.html">
+        <div class="tile-ico"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M230.33 141.06a24.43 24.43 0 0 0-21.24-4.23l-41.84 9.62A28 28 0 0 0 140 112H89.94a31.82 31.82 0 0 0-22.63 9.37L44.69 144H16a16 16 0 0 0-16 16v40a16 16 0 0 0 16 16h104a8 8 0 0 0 1.94-.24l64-16a7 7 0 0 0 1.19-.4L226 182.82l.44-.2a24.6 24.6 0 0 0 3.93-41.56ZM16 160h24v40H16Zm203.43 8.21l-38 16.18L119 200H56v-44.69l22.63-22.62A15.86 15.86 0 0 1 89.94 128H140a12 12 0 0 1 0 24h-28a8 8 0 0 0 0 16h32a8.3 8.3 0 0 0 1.79-.2l67-15.41l.31-.08a8.6 8.6 0 0 1 6.3 15.9Z"/></svg></div>
         <div>
-          <h3>Cash-out refinance specialty</h3>
+          <h3>Cash-Out Refinance Specialty</h3>
           <p>For owners of stabilized communities: we help refinance and free trapped equity for reinvestment — bringing an operator's credibility to the lender conversation.</p>
         </div>
       </a>
     </div>
     <div class="services-foot">
-      <a href="services.html" class="btn btn-primary">See how each works</a>
-      <a href="contact.html" class="btn btn-outline">Discuss your community</a>
+      <a href="services.html" class="btn btn-outline">See how each service works</a>
+      <a href="#contact" class="btn btn-primary">Discuss your community</a>
     </div>
   </div>
 </section>
 
-<!-- ===== LIFECYCLE (dark anchor) ===== -->
-<section class="lifecycle">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="section-tag">How a partnership unfolds</div>
-      <h2 class="section-title">Four stages, one accountable team</h2>
-      <p class="section-lead">An asset moves through distinct moments over its life. We stay through all of them.</p>
-    </div>
-    <div class="cycle-row reveal">
-      <div class="cycle-item active-line">
-        <span class="cycle-num">01</span>
-        <div class="cycle-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M10 21v-6h4v6"/></svg></div>
-        <h4>Develop</h4>
-        <p>Ground-up design, staffing plans, and pre-opening budgets.</p>
-      </div>
-      <div class="cycle-item active-line">
-        <span class="cycle-num">02</span>
-        <div class="cycle-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg></div>
-        <h4>Stabilize</h4>
-        <p>Turnaround and performance work to restore a healthy baseline.</p>
-      </div>
-      <div class="cycle-item active-line">
-        <span class="cycle-num">03</span>
-        <div class="cycle-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m14.5 9.5-2 5-5 2 2-5z"/></svg></div>
-        <h4>Operate</h4>
-        <p>Day-to-day management: staffing, care, compliance, census.</p>
-      </div>
-      <div class="cycle-item active-line">
-        <span class="cycle-num">04</span>
-        <div class="cycle-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2 22 7l-5 5M22 7H8a5 5 0 0 0-5 5v1"/><path d="M7 22 2 17l5-5M2 17h14a5 5 0 0 0 5-5v-1"/></svg></div>
-        <h4>Transition</h4>
-        <p>Refinance, sale, or handover — on the owner's terms.</p>
-      </div>
-    </div>
-    <div class="cycle-foot">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
-      One partner across all four stages — no handoffs, no gaps.
-    </div>
-  </div>
-</section>
-
-<!-- ===== WHY (bento) ===== -->
+<!-- WHY -->
 <section class="why">
   <div class="wrap">
-    <div class="reveal">
-      <div class="section-tag">Why partner with CCSL</div>
-      <h2 class="section-title">The reasons owners and lenders stay with us</h2>
-    </div>
+    <span class="eyebrow reveal">Why partner with CCSL</span>
+    <h2 class="section-title reveal">The reasons owners and lenders stay with us</h2>
     <div class="why-grid reveal">
-      <div class="why-tile">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 16c5 0 7-8 12-8a4 4 0 0 1 0 8c-5 0-7-8-12-8a4 4 0 1 0 0 8"/></svg></div>
+      <div class="why-item">
+        <div class="tile-ico"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M248 128a56 56 0 0 1-95.6 39.6l-.33-.35l-59.95-67.7a40 40 0 1 0 0 56.9l8.52-9.62a8 8 0 1 1 12 10.61l-8.69 9.81l-.33.35a56 56 0 1 1 0-79.2l.33.35l59.95 67.7a40 40 0 1 0 0-56.9l-8.52 9.62a8 8 0 1 1-12-10.61l8.69-9.81l.33-.35A56 56 0 0 1 248 128"/></svg></div>
         <h4>Full-lifecycle expertise</h4>
         <p>One team across development, stabilization, receivership, and long-term operations — no handoffs.</p>
       </div>
-      <div class="why-tile">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div class="why-item">
+        <div class="tile-ico"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M128 64a40 40 0 1 0 40 40a40 40 0 0 0-40-40m0 64a24 24 0 1 1 24-24a24 24 0 0 1-24 24m0-112a88.1 88.1 0 0 0-88 88c0 31.4 14.51 64.68 42 96.25a254.2 254.2 0 0 0 41.45 38.3a8 8 0 0 0 9.18 0a254.2 254.2 0 0 0 41.37-38.3c27.45-31.57 42-64.85 42-96.25a88.1 88.1 0 0 0-88-88m0 206c-16.53-13-72-60.75-72-118a72 72 0 0 1 144 0c0 57.23-55.47 105-72 118"/></svg></div>
         <h4>Hands-on operator</h4>
         <p>Michigan-based and on the ground, not a distant corporate manager reporting from afar.</p>
       </div>
-      <div class="why-tile">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.46 20.85A12 12 0 0 1 3.5 6A12 12 0 0 0 12 3a12 12 0 0 0 8.5 3a12 12 0 0 1-.09 7.06M15 19l2 2l4-4"/></svg></div>
+      <div class="why-item">
+        <div class="tile-ico"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M208 40H48a16 16 0 0 0-16 16v56c0 52.72 25.52 84.67 46.93 102.19c23.06 18.86 46 25.26 47 25.53a8 8 0 0 0 4.2 0c1-.27 23.91-6.67 47-25.53C198.48 196.67 224 164.72 224 112V56a16 16 0 0 0-16-16m0 72c0 37.07-13.66 67.16-40.6 89.42a129.3 129.3 0 0 1-39.4 22.2a128.3 128.3 0 0 1-38.92-21.81C61.82 179.51 48 149.3 48 112V56h160ZM82.34 141.66a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32l-56 56a8 8 0 0 1-11.32 0Z"/></svg></div>
         <h4>Trusted across the table</h4>
         <p>Proven with lenders, courts, and institutional owners across ownership types and deal structures.</p>
       </div>
-      <div class="why-tile">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v3m8-3v3"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M9 16l2 2 4-4"/></svg></div>
+      <div class="why-item">
+        <div class="tile-ico"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M208 32h-24v-8a8 8 0 0 0-16 0v8H88v-8a8 8 0 0 0-16 0v8H48a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16M72 48v8a8 8 0 0 0 16 0v-8h80v8a8 8 0 0 0 16 0v-8h24v32H48V48Zm136 160H48V96h160zm-38.34-85.66a8 8 0 0 1 0 11.32l-48 48a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L116 164.69l42.34-42.35a8 8 0 0 1 11.32 0"/></svg></div>
         <h4>A track record since 2013</h4>
         <p>More than a decade of accountable management across 30+ communities.</p>
       </div>
     </div>
     <div class="why-foot reveal">
-      <p>See the full case for partnering with CCSL, including situation-by-situation results.</p>
-      <div class="btn-row">
+      <p class="why-foot-text">See the full case for partnering with CCSL, situation by situation.</p>
+      <div class="why-foot-actions">
         <a href="why.html" class="btn btn-outline">Why CCSL</a>
-        <a href="contact.html" class="btn btn-primary">Partner with us</a>
+        <a href="#contact" class="btn btn-primary">Partner with us</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== LEADERSHIP ===== -->
+<!-- LEADERSHIP -->
 <section class="leaders">
   <div class="wrap">
-    <div class="reveal">
-      <div class="section-tag">Our leadership</div>
-      <h2 class="section-title">Led by people who've done the work</h2>
-      <p class="section-lead">A hands-on team spanning ownership, operations, finance, and development.</p>
-    </div>
-    <div class="leader-row reveal">
-      <div class="leader">
-        <div class="leader-avatar" style="background:var(--ink);">HS</div>
-        <h4>Hamza Sikander</h4>
-        <div class="role">Owner &amp; CEO</div>
-      </div>
-      <div class="leader">
-        <div class="leader-avatar" style="background:var(--brass);">KF</div>
-        <h4>Kory Feetham</h4>
-        <div class="role">Chief Operating Officer</div>
-      </div>
-      <div class="leader">
-        <div class="leader-avatar" style="background:var(--slate);">S</div>
-        <h4>Shahan</h4>
-        <div class="role">Chief Financial Officer</div>
-      </div>
-      <div class="leader">
-        <div class="leader-avatar" style="background:var(--brass-light);">DB</div>
-        <h4>Doug Boehm</h4>
-        <div class="role">Dir. Development &amp; Acquisitions</div>
-      </div>
-      <div class="leader">
-        <div class="leader-avatar" style="background:var(--slate-light);">MR</div>
-        <h4>Morgan Ralph</h4>
-        <div class="role">Assoc. Regional Manager</div>
-      </div>
+    <span class="eyebrow reveal">Our leadership</span>
+    <h2 class="section-title reveal">Led by people who've done the work</h2>
+    <p class="lead reveal">A hands-on team spanning ownership, operations, finance, and development.</p>
+    <div class="leaders-grid reveal">
+      <div class="leader"><div class="avatar" style="background:linear-gradient(150deg,var(--brass),var(--brass-dark));">HS</div><h4>Hamza Sikander</h4><div class="role">Owner &amp; CEO</div></div>
+      <div class="leader"><div class="avatar" style="background:linear-gradient(150deg,var(--slate),#2A3339);">KF</div><h4>Kory Feetham</h4><div class="role">Chief Operating Officer</div></div>
+      <div class="leader"><div class="avatar" style="background:linear-gradient(150deg,var(--brass-dark),#5B3E1B);">S</div><h4>Shahan</h4><div class="role">Chief Financial Officer</div></div>
+      <div class="leader"><div class="avatar" style="background:linear-gradient(150deg,#5C6B74,var(--slate));">DB</div><h4>Doug Boehm</h4><div class="role">Dir. Development &amp; Acquisitions</div></div>
+      <div class="leader"><div class="avatar" style="background:linear-gradient(150deg,var(--brass),#5B3E1B);">MR</div><h4>Morgan Ralph</h4><div class="role">Assoc. Regional Manager</div></div>
     </div>
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
+<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="wrap contact-grid">
-    <div class="reveal">
-      <div class="section-tag">Get in touch</div>
-      <h2 class="section-title">Let's talk about your community</h2>
-      <div class="contact-copy">
-        <p>Whether you own a community, finance one, are transitioning a distressed asset, or manage a portfolio — we'd welcome the conversation.</p>
-      </div>
+    <div class="contact-copy reveal">
+      <span class="eyebrow">Get in touch</span>
+      <h2 class="section-title">Partner with CCSL today</h2>
+      <p>With CCSL, you're partnering with a team that genuinely cares about the success of your senior living community. Tell us about your situation and we'll follow up directly — no call center, no queue.</p>
       <div class="contact-info">
-        <div class="contact-info-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <div><div class="label">Phone</div><div class="value">[Corporate phone number]</div></div>
+        <div class="contact-info-row">
+          <div class="tile-ico" style="margin-bottom:0;"><svg viewBox="0 0 256 256" fill="currentColor" style="color:var(--brass-dark)"><path d="M222.37 158.46l-47.11-21.11-.13-.06a16 16 0 0 0-15.17 1.4a8 8 0 0 0-.75.56L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16 16 0 0 0 1.32-15.06v-.12L97.54 33.64a16 16 0 0 0-16.62-9.52A56.26 56.26 0 0 0 32 80c0 79.4 64.6 144 144 144a56.26 56.26 0 0 0 55.88-48.92a16 16 0 0 0-9.51-16.62"/></svg></div>
+          <div><div class="ct-label">Phone</div><div class="ct-value">(800) 555-2013</div></div>
         </div>
-        <div class="contact-info-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
-          <div><div class="label">Email</div><div class="value">[Inquiries email]</div></div>
+        <div class="contact-info-row">
+          <div class="tile-ico" style="margin-bottom:0;"><svg viewBox="0 0 256 256" fill="currentColor" style="color:var(--brass-dark)"><path d="M224 48H32a8 8 0 0 0-8 8v136a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a8 8 0 0 0-8-8m-96 85.15L52.57 64h150.86ZM98.71 128L40 181.81V74.19Zm11.84 10.85l12.51 11.49a8 8 0 0 0 10.88 0l12.51-11.49L157.43 176H98.57ZM157.29 128L216 74.18v107.64Z"/></svg></div>
+          <div><div class="ct-label">Email</div><div class="ct-value">inquiries@ccslmgmt.com</div></div>
         </div>
-        <div class="contact-info-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-          <div><div class="label">Headquarters</div><div class="value">[Corporate office address]</div></div>
+        <div class="contact-info-row">
+          <div class="tile-ico" style="margin-bottom:0;"><svg viewBox="0 0 256 256" fill="currentColor" style="color:var(--brass-dark"><path d="M128 64a40 40 0 1 0 40 40a40 40 0 0 0-40-40m0 64a24 24 0 1 1 24-24a24 24 0 0 1-24 24m0-112a88.1 88.1 0 0 0-88 88c0 31.4 14.51 64.68 42 96.25a254.2 254.2 0 0 0 41.45 38.3a8 8 0 0 0 9.18 0a254.2 254.2 0 0 0 41.37-38.3c27.45-31.57 42-64.85 42-96.25a88.1 88.1 0 0 0-88-88m0 206c-16.53-13-72-60.75-72-118a72 72 0 0 1 144 0c0 57.23-55.47 105-72 118"/></svg></div>
+          <div><div class="ct-label">Headquarters</div><div class="ct-value">Michigan — serving communities nationwide</div></div>
         </div>
       </div>
     </div>
     <div class="contact-form reveal">
-      <h3>Send us a message</h3>
-      <form id="inquiry-form">
-        <div class="field-row">
-          <div class="field"><label for="name">Name</label><input type="text" id="name" placeholder="Jane Smith"></div>
-          <div class="field"><label for="company">Company</label><input type="text" id="company" placeholder="Company name"></div>
-        </div>
-        <div class="field"><label for="role">I am a…</label>
-          <select id="role">
-            <option value="">Select one</option>
-            <option>Owner</option>
-            <option>Lender / capital partner</option>
-            <option>Court-appointed receiver</option>
-            <option>REIT / institutional</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="field"><label for="email">Email</label><input type="email" id="email" placeholder="you@company.com"></div>
-        <div class="field"><label for="message">Message</label><textarea id="message" placeholder="Tell us briefly about your community or project"></textarea></div>
-        <button type="submit" class="submit-btn">Contact our team</button>
-        <div class="form-note">Homepage mockup form — not yet wired to send. Confirm your inbox or CRM before launch.</div>
-        <div class="confirm-msg" id="confirm-msg">Thanks — this is a static mockup, so nothing was actually sent. Once live, this confirms a real submission.</div>
-      </form>
+      <div class="form-row">
+        <div class="field"><label>First name</label><input type="text" placeholder="Jane"></div>
+        <div class="field"><label>Last name</label><input type="text" placeholder="Smith"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Company</label><input type="text" placeholder="Company name"></div>
+        <div class="field"><label>Email</label><input type="email" placeholder="you@company.com"></div>
+      </div>
+      <div class="field">
+        <label>I am a…</label>
+        <select>
+          <option value="">Select one</option>
+          <option>Community owner or investor</option>
+          <option>Lender or capital partner</option>
+          <option>Court-appointed receiver</option>
+          <option>REIT or institutional owner</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field"><label>Message</label><textarea placeholder="Tell us about your community or how we can help"></textarea></div>
+      <button class="submit-btn" id="submit-btn">Send message</button>
+      <div class="form-note">Mockup form — not yet wired to send. Confirm inbox/CRM before launch.</div>
+      <div class="confirm-msg" id="confirm-msg">Thanks — this is a static mockup, so nothing was actually sent. Once live, this confirms a real submission.</div>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer>
   <div class="wrap footer-grid">
     <div>
-      <div class="footer-brand">
-        <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#1c1b19" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16c5 0 7-8 12-8a4 4 0 0 1 0 8c-5 0-7-8-12-8a4 4 0 1 0 0 8"/></svg></div>
-        <span class="footer-brand-name">Comfort Care Senior Living</span>
-      </div>
+      <div class="logo"><div class="logo-mark">CC</div><div><span class="logo-name" style="color:var(--white);">Comfort Care Senior Living</span><span class="logo-sub">Management &amp; Advisory</span></div></div>
       <p class="footer-desc">Management and advisory for senior living communities — development, stabilization, receivership transitions, and institutional advisory since 2013.</p>
     </div>
     <div>
       <h4>Site</h4>
-      <ul>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="why.html">Why CCSL</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <ul><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="why.html">Why CCSL</a></li><li><a href="#contact">Contact</a></li></ul>
     </div>
     <div>
       <h4>Contact</h4>
-      <ul>
-        <li>[Corporate office address]</li>
-        <li>[Phone number]</li>
-        <li>[Inquiries email]</li>
-      </ul>
+      <ul><li>(800) 555-2013</li><li>inquiries@ccslmgmt.com</li><li>Michigan, USA</li></ul>
     </div>
   </div>
   <div class="wrap footer-bottom">
@@ -675,63 +542,32 @@
 </footer>
 
 <script>
-  // Scroll reveal — single fade-up per section
-  (function(){
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var els = document.querySelectorAll('.reveal');
-    if(reduce || !('IntersectionObserver' in window)){ els.forEach(function(el){ el.classList.add('in'); }); return; }
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('in'); });
+  } else {
     var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold:.14, rootMargin:'0px 0px -60px 0px' });
-    els.forEach(function(el){ io.observe(el); });
-  })();
-
-  // Animated stat counters
-  (function(){
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var cells = document.querySelectorAll('.bento-cell .num');
-    if(!cells.length) return;
-    var done = false;
-    function animate(){
-      if(done) return; done = true;
-      cells.forEach(function(el){
-        var raw = el.textContent.trim();
-        var target = parseInt(raw.replace(/\D/g,''), 10);
-        var suffix = /\+/.test(raw) ? '+' : '';
-        if(reduce || !target || target > 3000){ return; }
-        var start = null, dur = 1200;
-        function step(ts){
-          if(!start) start = ts;
-          var p = Math.min((ts-start)/dur, 1);
-          var eased = 1 - Math.pow(1-p, 3);
-          el.textContent = Math.round(eased*target) + suffix;
-          if(p < 1) requestAnimationFrame(step); else el.textContent = raw;
-        }
-        requestAnimationFrame(step);
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
       });
-    }
-    var band = document.querySelector('.bento-grid');
-    if('IntersectionObserver' in window){
-      var io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ animate(); io.disconnect(); } }); }, { threshold:.6 });
-      io.observe(band);
-    } else animate();
-  })();
+    }, { threshold:.15, rootMargin:'0px 0px -60px 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  }
 
-  // Mobile menu
   document.querySelector('.menu-btn').addEventListener('click', function(){
-    var l = document.querySelector('.nav-links');
+    var l = document.querySelector('nav.links');
     var open = l.style.display === 'flex';
     l.style.display = open ? 'none' : 'flex';
     l.style.flexDirection = 'column';
     l.style.position = 'absolute';
-    l.style.top = '68px'; l.style.right = '32px';
-    l.style.background = '#fbf9f4'; l.style.padding = '20px 24px';
-    l.style.borderRadius = '8px'; l.style.gap = '18px';
-    l.style.border = '1px solid #cfc6b2'; l.style.boxShadow = '0 12px 30px rgba(0,0,0,.12)';
+    l.style.top = '64px'; l.style.right = '32px';
+    l.style.background = '#ECE6D9'; l.style.padding = '20px 24px';
+    l.style.borderRadius = '10px'; l.style.gap = '18px';
+    l.style.border = '1px solid #D2C7AE'; l.style.boxShadow = '0 16px 40px rgba(0,0,0,.12)';
   });
 
-  // Form
-  document.getElementById('inquiry-form').addEventListener('submit', function(e){
+  document.getElementById('submit-btn').addEventListener('click', function(e){
     e.preventDefault();
     document.getElementById('confirm-msg').style.display = 'block';
   });
